@@ -1,0 +1,13 @@
+/*
+ * led_seg.h
+ *
+ *  Created on: Oct 3, 2023
+ *      Author: Amyra Nguyen
+ */
+
+#ifndef INC_LED_SEG_H_
+#define INC_LED_SEG_H_
+
+#include "global.h"
+
+#endif /* INC_LED_SEG_H_ */

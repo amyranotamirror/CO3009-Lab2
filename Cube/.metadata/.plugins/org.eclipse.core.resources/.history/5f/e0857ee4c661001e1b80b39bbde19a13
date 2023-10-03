@@ -1,0 +1,26 @@
+/*
+ * timer.h
+ *
+ *  Created on: Oct 3, 2023
+ *      Author: Amyra Nguyen
+ */
+
+#ifndef INC_SOFTWARE_TIMER_H_
+#define INC_SOFTWARE_TIMER_H_
+
+/* Include */
+#include "global.h"
+/* Program define */
+#define DURATION_DOT 100
+#define DURATION_SEG 50
+
+/* Program variable */
+int timer_limit[NUM_TIMER] = {DURATION_DOT, DURATION_SEG};
+int timer_counter[NUM_TIMER] = {DURATION_DOT, DURATION_SEG};
+int timer_flag[NUM_LED] = {0, 0};
+
+/* Program functions*/
+void init_software_timer();
+void set_timer(int timer_index);
+void run_timer();
+#endif /* INC_SOFTWARE_TIMER_H_ */

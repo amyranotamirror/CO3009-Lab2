@@ -1,0 +1,16 @@
+/*
+ * led_seg.c
+ *
+ *  Created on: Oct 3, 2023
+ *      Author: Amyra Nguyen
+ */
+
+
+#include "led_seg.h"
+void display7SEG(int num, GPIO_TypeDef *port){
+	if(num >= MIN_NUM && num <= MAX_NUM){
+		port->ODR = (port->ODR | led_seg_on[num]) & ~led_seg_off[num];
+		return;
+	}
+	port->ODR = (port->ODR | led_seg_on[10]) & ~led_seg_off[10];
+}

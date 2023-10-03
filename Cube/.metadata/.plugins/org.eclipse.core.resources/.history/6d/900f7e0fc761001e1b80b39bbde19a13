@@ -1,0 +1,20 @@
+/*
+ * software_timer.c
+ *
+ *  Created on: Oct 3, 2023
+ *      Author: Amyra Nguyen
+ */
+
+
+#include "software_timer.h"
+void init_software_timer(){
+	set_timer(0);
+	set_timer(1);
+}
+void set_timer(int timer_index){
+	timer_counter[timer_index] = timer_limit[timer_index];
+	timer_flag[timer_index] = 0;
+}
+void run_timer(){
+
+}

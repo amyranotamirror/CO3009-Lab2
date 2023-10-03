@@ -1,0 +1,35 @@
+/*
+ * software_timer.c
+ *
+ *  Created on: Oct 3, 2023
+ *      Author: Amyra Nguyen
+ */
+
+
+#include "software_timer.h"
+void init_software_timer(){
+	for(uint16_t index = 0; index < NUM_TIMER; index++){
+		timer[index]->limit = timer_limit[index];
+		set_timer(index);
+	}
+}
+void set_timer(int index){
+	timer[timer_index]->counter = timer[timer_index]->limit;
+	timer[timer_index]->flag = 0;
+}
+void run_timer(){
+	for(uint16_t index = 0; index < NUM_TIMER; index++){
+		if(timer[index]->counter > 0){
+			timer[index]->counter--;
+			if(timer[index]->counter <= 0){
+				timer[index]->flag = 1;
+			}
+		}
+		if(timer_counter[index] > 0){
+			timer_counter[index]--;
+			if(timer_counter[index] <= 0){
+				timer_flag[index] = 1;
+			}
+		}
+	}
+}

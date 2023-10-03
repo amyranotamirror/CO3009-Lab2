@@ -1,0 +1,28 @@
+/*
+ * global.h
+ *
+ *  Created on: Oct 3, 2023
+ *      Author: Amyra Nguyen
+ */
+
+#ifndef INC_GLOBAL_H_
+#define INC_GLOBAL_H_
+
+/* Include */
+#include "main.h"
+
+/* Program define */
+#define NUM_LED 2
+#define NUM_TIMER 1
+
+typedef struct{
+	GPIO_TypeDef* port;
+	uint16_t pin;
+} GPIO_config;
+
+/* Program variables */
+GPIO_config seg_enable_pin[NUM_LED];
+int timer_limit[NUM_TIMER] = {SEG_TIMER_DURATION};
+int timer_counter[NUM_TIMER] = {SEG_TIMER_DURATION};
+int timer_flag[NUM_TIMER] = {0};
+#endif /* INC_GLOBAL_H_ */

@@ -1,0 +1,25 @@
+/*
+ * led_seg.c
+ *
+ *  Created on: Oct 3, 2023
+ *      Author: Amyra Nguyen
+ */
+
+
+#include "led_seg.h"
+void init_led_seg(){
+	// Setup port & pin for enabling led segments
+	enable_led_seg[0] = (GPIO_config){EN_A_GPIO_Port, EN_A_Pin};
+	enable_led_seg[1] = (GPIO_config){EN_B_GPIO_Port, EN_B_Pin};
+}
+void enable_led_seg(int index);
+void disable_led_seg(int index){
+	HAL_GPIO_WritePin(enable_led_seg[index]->port, GPIO_Pin, PinState)
+}
+void display7SEG(int num, GPIO_TypeDef *port){
+	if(num >= MIN_NUM && num <= MAX_NUM){
+		port->ODR = (port->ODR | led_seg_on[num]) & ~led_seg_off[num];
+		return;
+	}
+	port->ODR = (port->ODR | led_seg_on[10]) & ~led_seg_off[10];
+}
