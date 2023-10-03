@@ -17,3 +17,13 @@ void set_timer(int index){
 	timer[index].counter = timer[index].limit;
 	timer[index].flag = 0;
 }
+void run_timer(){
+	for(int index = 0; index < NUM_TIMER; index++){
+		if(timer[index].counter > 0){
+			timer[index].counter--;
+			if(timer[index].counter <= 0){
+				timer[index].flag = 1;
+			}
+		}
+	}
+}

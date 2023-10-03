@@ -240,8 +240,13 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	run_timer();
-
+	for(int index = 0; index < NUM_TIMER; index++){
+		if(timer[index].counter > 0){
+			timer[index].counter--;
+			if(timer[index].counter <= 0)
+				timer[index].flag = 1;
+		}
+	}
 }
 /* USER CODE END 4 */
 
