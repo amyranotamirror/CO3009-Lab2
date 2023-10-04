@@ -13,12 +13,14 @@
 
 /* Program define */
 #define NUM_LED 4
-#define NUM_TIMER 2
+#define NUM_TIMER 3
 
-#define SEG_TIMER_DURATION 50
+#define SEG_TIMER_DURATION 25
 #define SEG_TIMER_INDEX 0
 #define DOT_TIMER_DURATION 100
 #define DOT_TIMER_INDEX 1
+#define CLOCK_TIMER_DURATION 100
+#define CLOCK_TIMER_INDEX 2
 
 typedef struct{
 	GPIO_TypeDef* port;
@@ -34,5 +36,6 @@ typedef struct{
 GPIO_config seg_enable_pin[NUM_LED + 1];// DOT
 timer_config timer[NUM_TIMER];
 extern int timer_limit[NUM_TIMER];
+extern int led_buffer[NUM_LED];
 
 #endif /* INC_GLOBAL_H_ */

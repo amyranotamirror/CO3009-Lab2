@@ -9,6 +9,8 @@
 #include "led_seg.h"
 int led_seg_on[11] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0xFF};
 int led_seg_off[11] = {0x3F, 0x06, 0x5B, 0x4F, 0x66, 0x6D, 0x7D, 0x07, 0x7F, 0x6F, 0x00};
+int led_buffer[NUM_LED] = {1, 5, 0, 8};
+
 
 void init_led_seg(){
 	// Setup port & pin for enabling led segments
@@ -32,4 +34,25 @@ void display7SEG(int num, GPIO_TypeDef *port){
 		return;
 	}
 	port->ODR = (port->ODR | led_seg_on[10]) & ~led_seg_off[10];
+}
+void displayDot(int status){
+	if(status == 1)
+		enable_led_seg(NUM_LED);
+	if(status == 0)
+		disable_led_seg(NUM_LED);
+}
+void update7SEG(int index){
+    display7SEG(led_buffer[index], GPIOB);
+    for(uint16_t i = 0; i < NUM_LED; index++){
+        if(i == index)
+            enable_led_seg(i);
+        if(i != index)
+            disable_led_seg(i);
+    }
+}
+void updateClockBuffer(int hour, int minute){
+	led_buffer[0] = hour / 10;
+	led_buffer[1] = hour % 10;
+	led_buffer[2] = minute / 10;
+	led_buffer[3] = minute % 10;
 }
