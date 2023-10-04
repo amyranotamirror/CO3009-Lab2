@@ -20,5 +20,6 @@ void init_led_seg();
 void enable_led_seg(int index);
 void disable_led_seg(int index);
 void display7SEG(int num, GPIO_TypeDef* port);
+void update7SEG(int index);
 
 #endif /* INC_LED_SEG_H_ */

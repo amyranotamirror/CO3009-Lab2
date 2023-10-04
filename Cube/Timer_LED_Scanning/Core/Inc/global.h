@@ -34,5 +34,6 @@ typedef struct{
 GPIO_config seg_enable_pin[NUM_LED + 1];// DOT
 timer_config timer[NUM_TIMER];
 extern int timer_limit[NUM_TIMER];
+extern int led_buffer[NUM_LED];
 
 #endif /* INC_GLOBAL_H_ */

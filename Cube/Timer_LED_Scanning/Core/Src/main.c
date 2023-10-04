@@ -44,7 +44,6 @@ TIM_HandleTypeDef htim2;
 /* USER CODE BEGIN PV */
 int led_index = 0;
 int dot_status = 0;
-int led_buffer[NUM_LED] = {1, 2, 3, 0};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -100,19 +99,12 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  //Displaying LEDs
-	  display7SEG(led_buffer[led_index], GPIOB);
+	  // LED scanning
+	  update7SEG(led_index);
 	  if(dot_status == 1)
 		  enable_led_seg(NUM_LED);
 	  if(dot_status == 0)
 		  disable_led_seg(NUM_LED);
-	  // LED scanning
-	  for(uint16_t index = 0; index < NUM_LED; index++){
-		  if(index == led_index)
-			  enable_led_seg(index);
-		  if(index != led_index)
-			  disable_led_seg(index);
-	  }
 	  // Timer controller for next state
 	  if(timer[SEG_TIMER_INDEX].flag == 1){
 		  set_timer(SEG_TIMER_INDEX);

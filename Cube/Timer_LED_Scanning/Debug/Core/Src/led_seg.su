@@ -2,3 +2,4 @@ led_seg.c:13:6:init_led_seg	56	static
 led_seg.c:23:6:enable_led_seg	16	static
 led_seg.c:26:6:disable_led_seg	16	static
 led_seg.c:29:6:display7SEG	16	static
+led_seg.c:36:6:update7SEG	16	static
