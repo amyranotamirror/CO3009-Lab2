@@ -29,6 +29,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f1xx_hal.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "software_timer.h"
@@ -59,6 +60,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define DOT_Pin GPIO_PIN_4
+#define DOT_GPIO_Port GPIOA
 #define LED_RED_Pin GPIO_PIN_5
 #define LED_RED_GPIO_Port GPIOA
 #define EN_A_Pin GPIO_PIN_6
@@ -71,6 +74,10 @@ void Error_Handler(void);
 #define SEG_b_GPIO_Port GPIOB
 #define SEG_c_Pin GPIO_PIN_2
 #define SEG_c_GPIO_Port GPIOB
+#define EN_C_Pin GPIO_PIN_8
+#define EN_C_GPIO_Port GPIOA
+#define EN_D_Pin GPIO_PIN_9
+#define EN_D_GPIO_Port GPIOA
 #define SEG_d_Pin GPIO_PIN_3
 #define SEG_d_GPIO_Port GPIOB
 #define SEG_e_Pin GPIO_PIN_4
