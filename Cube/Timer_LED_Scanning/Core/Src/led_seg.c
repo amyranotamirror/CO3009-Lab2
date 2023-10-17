@@ -18,7 +18,7 @@ void init_led_seg(){
 	seg_enable_pin[1] = (GPIO_config){EN_B_GPIO_Port, EN_B_Pin};
 	seg_enable_pin[2] = (GPIO_config){EN_C_GPIO_Port, EN_C_Pin};
 	seg_enable_pin[3] = (GPIO_config){EN_D_GPIO_Port, EN_D_Pin};
-	seg_enable_pin[4] = (GPIO_config){DOT_GPIO_Port, DOT_Pin};
+	seg_enable_pin[4] = (GPIO_config){DOT_GPIO_Port, DOT_Pin};//DOT PIN
 	for(uint16_t index = 0; index < NUM_LED; index++)
 		disable_led_seg(index);
 }
@@ -42,13 +42,13 @@ void displayDot(int status){
 		disable_led_seg(NUM_LED);
 }
 void update7SEG(int index){
-    display7SEG(led_buffer[index], GPIOB);
-    for(uint16_t i = 0; i < NUM_LED; index++){
+    for(uint16_t i = 0; i < NUM_LED; i++){
         if(i == index)
             enable_led_seg(i);
         if(i != index)
             disable_led_seg(i);
     }
+    display7SEG(led_buffer[index], GPIOB);
 }
 void updateClockBuffer(int hour, int minute){
 	led_buffer[0] = hour / 10;
