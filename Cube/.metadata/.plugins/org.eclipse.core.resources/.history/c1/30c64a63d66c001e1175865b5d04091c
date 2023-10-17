@@ -104,7 +104,7 @@ int main(void)
   {
 	  // LED scanning
 	  update7SEG(led_index);
-	  displayDot(dot_status);
+//	  displayDot(dot_status);
 	  // Timer controller for next state
 	  if(timer[SEG_TIMER_INDEX].flag == 1){
 		  set_timer(SEG_TIMER_INDEX);
@@ -114,6 +114,22 @@ int main(void)
 		  set_timer(DOT_TIMER_INDEX);
 		  dot_status = !dot_status;
 	  }
+//	  if(timer[CLOCK_TIMER_INDEX].flag == 1){
+//		  set_timer(CLOCK_TIMER_INDEX);
+//		  second++;
+//		  if(second >= 60){
+//			  second = 0;
+//			  minute++;
+//		  }
+//		  if(minute >= 60){
+//			  hour++;
+//			  minute = 0;
+//		  }
+//		  if(hour >= 24){
+//			  hour = 0;
+//		  }
+//		  updateClockBuffer(hour, minute);
+//	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

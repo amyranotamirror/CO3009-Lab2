@@ -43,7 +43,7 @@ void displayDot(int status){
 }
 void update7SEG(int index){
     display7SEG(led_buffer[index], GPIOB);
-    for(uint16_t i = 0; i < NUM_LED; i++){
+    for(uint16_t i = 0; i < NUM_LED; index++){
         if(i == index)
             enable_led_seg(i);
         if(i != index)
