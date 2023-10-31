@@ -46,6 +46,7 @@ int led_matrix_character[26][NUM_ROW] = {{0x3c,0x7e,0x66,0x66,0x7e,0x66,0x66,0x6
 										{0xc3,0x66,0x3c,0x18,0x18,0x18,0x18,0x18},
 										{0x7e,0x7e,0x06,0x0c,0x18,0x30,0x7e,0x7e}};
 
+int led_matrix_shape[NUM_ROW] = {0x18,0x3c,0x3c,0x18,0x7e,0x18,0x24,0x24};
 void enable_matrix_col(int col_index){
 	HAL_GPIO_WritePin(matrix_enable_pin[col_index].port, matrix_enable_pin[col_index].pin, GPIO_PIN_RESET);
 }
@@ -58,7 +59,14 @@ void display_matrix_character(int row_index){
 void display_matrix_number(int row_index){
 	GPIOB->ODR = (GPIOB->ODR & (0xFF)) | (~led_matrix_number[led_matrix_value][row_index] << 8);
 }
-
+void display_matrix_shape(int row_index){
+	int updatedValue = led_matrix_shape[row_index];
+	if(led_matrix_value < 7)
+		updatedValue = updatedValue >> (7 - led_matrix_value);
+	if(led_matrix_value > 7)
+		updatedValue = updatedValue << (led_matrix_value - 7);
+	GPIOB->ODR = (GPIOB->ODR & (0xFF)) | (~updatedValue << 8);
+}
 /* Public function declaration */
 void init_led_matrix(){
 	matrix_enable_pin[0] = (GPIO_config){ENM0_GPIO_Port, ENM0_Pin};
@@ -82,8 +90,5 @@ void updateMatrixRow(int row_index){
 		if(i != row_index)
 			disable_matrix_col(i);
 	}
-	if(led_matrix_value < 10)
-		display_matrix_number(row_index);
-	if(led_matrix_value <= 90 && led_matrix_value >= 65)
-		display_matrix_character(row_index);
+	display_matrix_shape(row_index);
 }

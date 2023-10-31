@@ -14,7 +14,6 @@
 /* Program define */
 #define NUM_LED 4
 #define NUM_TIMER 4
-#define NUM_COL 8
 #define NUM_ROW 8
 
 #define SEG_TIMER_DURATION 25
@@ -38,7 +37,7 @@ typedef struct{
 
 /* Program variables */
 GPIO_config seg_enable_pin[NUM_LED + 1];// DOT
-GPIO_config matrix_enable_pin[NUM_COL];
+GPIO_config matrix_enable_pin[NUM_ROW];
 timer_config timer[NUM_TIMER];
 extern int timer_limit[NUM_TIMER];
 extern int led_buffer[NUM_LED];

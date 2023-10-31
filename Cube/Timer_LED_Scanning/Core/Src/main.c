@@ -46,6 +46,7 @@ int dot_status = 0;
 int led_index = 0;
 char matrix_value = 'A';
 int matrix_row_index = 0;
+int matrix_index = 0;
 int hour = 15;
 int minute = 8;
 int second = 50;
@@ -134,6 +135,7 @@ int main(void)
 			  hour = 0;
 		  }
 		  updateClockBuffer(hour, minute);
+		  matrix_value = (matrix_value + 1) % (NUM_ROW * 2);
 	  }
 
 	  if(timer[MATRIX_TIMER_INDEX].flag == 1){
