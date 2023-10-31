@@ -17,10 +17,7 @@ extern int led_seg_off[11];
 
 /* Program functions */
 void init_led_seg();
-void enable_led_seg(int index);
-void disable_led_seg(int index);
 void displayDot(int status);
-void display7SEG(int num, GPIO_TypeDef* port);
 void update7SEG(int index);
 void updateClockBuffer(int hour, int minute);
 

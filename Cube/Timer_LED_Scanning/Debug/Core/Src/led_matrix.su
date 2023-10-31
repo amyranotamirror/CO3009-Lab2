@@ -1,0 +1,7 @@
+led_matrix.c:49:6:enable_matrix_col	16	static
+led_matrix.c:52:6:disable_matrix_col	16	static
+led_matrix.c:55:6:display_matrix_character	16	static
+led_matrix.c:58:6:display_matrix_number	16	static
+led_matrix.c:63:6:init_led_matrix	72	static
+led_matrix.c:75:6:updateMatrixBuffer	16	static
+led_matrix.c:78:6:updateMatrixRow	24	static

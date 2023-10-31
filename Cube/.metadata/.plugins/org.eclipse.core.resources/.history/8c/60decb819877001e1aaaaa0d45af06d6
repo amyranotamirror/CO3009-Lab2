@@ -1,0 +1,19 @@
+/*
+ * led_matrix.h
+ *
+ *  Created on: Oct 17, 2023
+ *      Author: Amyra Nguyen
+ */
+
+#ifndef INC_LED_MATRIX_H_
+#define INC_LED_MATRIX_H_
+
+#include "global.h"
+#include "main.h"
+
+void init_led_matrix();
+void updateMatrixBuffer(int number);
+void updateMatrixRow(int row_index);
+void display_matrix_number(int number);
+void display_matrix_character(int character);
+#endif /* INC_LED_MATRIX_H_ */
